@@ -103,9 +103,23 @@ System.out.println("\n" + "(" + galinhasEnumeradas +")" + "\n Nome: " + galinhas
         for (int i = 0; i < cachorros.size(); i++) {
           int cachorrosEnumerados = i + 1;
 System.out.println("\n" + "(" +  cachorrosEnumerados +")" + "\n Nome: " +  cachorros.get(i).nome + "\n Idade: " +  cachorros.get(i).idade + "\n Cor: " +  cachorros.get(i).cor + "\n Pelagem: " +  cachorros.get(i).pelagem + "\n Porte: " + cachorros.get(i).porte + " cm" + "\n Peso: " +  cachorros.get(i).peso +"\n Raca: " +  cachorros.get(i).raca +"\n");
-    }
+       }
     }
 
+ public static void exibeGatos(){
+       ArrayList<Gato> gatos = new ArrayList<Gato>();
+      Gato g1 = new Gato("Thunder", 14, "Preto", " Solida", 30,  "SRD");
+      Gato g2 = new Gato("Chips", 3, "Branco", "Tabby", 25, " Sphynx");
+      Gato g3 = new Gato("Shelby", 1, "Vermelho", "Particolor", 35, "Siamês");
+     gatos.add(g1);
+     gatos.add(g2);
+     gatos.add(g3);
+        for (int i = 0; i < gatos.size(); i++) {
+          int gatosEnumerados = i + 1;
+System.out.println("\n" + "(" +  gatosEnumerados +")" + "\n Nome: " +  gatos.get(i).nome + "\n Idade: " +  gatos.get(i).idade + "\n Cor: " +  gatos.get(i).cor + "\n Pelagem: " +  gatos.get(i).pelagem + "\n Comprimento: " + gatos.get(i).comprimento + " cm"  +"\n Raca: " +  gatos.get(i).raca +"\n");
+       }
+    }
+  
     public static void adotaPet(){
         System.out.println(" \n Que tipo de animal voce gostaria de adotar?");
        System.out.println(" (1) Galinha\n (2) Cachorro \n (3) Gato");
@@ -125,6 +139,7 @@ System.out.println("\n" + "(" +  cachorrosEnumerados +")" + "\n Nome: " +  cacho
           break;
           case 3:
           System.out.printf("\nGatos disponiveis para adocao:");
+          exibeGatos();
           break;
         default:
           System.out.printf("\nNao temos este animal para adocao!");
