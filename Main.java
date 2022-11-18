@@ -6,7 +6,7 @@ public class Main {
     public static void menu(){
         System.out.println("\n\n********** Programa de ajuda aos animais **********\nEscolha uma opcao: ");
         System.out.println("0. Sair.");
-        System.out.println("1. Descobrir se uma marca machuca os animais.");
+        System.out.println("1. Descobrir se uma marca testa em animais.");
         System.out.println("2. Ver biblioteca de livros sobre animais.");
         System.out.println("3. Recomendar um livro.");
         System.out.println("4. Adotar um PET.");
@@ -18,9 +18,41 @@ public class Main {
   
     public static void pesquisaMarca(){
       ArrayList<Marca> marcas = new ArrayList<Marca>();
-      Marca m1 = new Marca("Avon", "https://epocanegocios.globo.com/Empresa/noticia/2019/12/epoca-negocios-avon-anuncia-fim-dos-testes-em-animais-em-todas-as-empresas-da-marca-no-mundo.html");
-      
+      marcas.add(new Marca("Gillette", true, "https://redorangepeach.com/brands/gillette/#")); 
+      marcas.add(new Marca("Bic", true, "https://www.vista-se.com.br/bic-lider-mundial-de-canetas-e-isqueiros-testa-em-animais/")); 
+      marcas.add(new Marca("Rexona", true, "https://www.crueltyfreekitty.com/brands/rexona/")); 
+      marcas.add(new Marca("Band-Aid", true, "https://crueltyfree.peta.org/company/band-aid-johnson-johnson/")); 
+      marcas.add(new Marca("Nescau", true, "https://lookaholic.wordpress.com/2013/04/29/marcas-alimenticias-que-pertencem-a-companhias-que-fazemnao-fazem-testes-em-animais/")); 
+      marcas.add(new Marca("Avon", false)); 
+      marcas.add(new Marca("Minuano", false)); 
+      marcas.add(new Marca("Ype", false)); 
+      marcas.add(new Marca("Natura", false)); 
+      marcas.add(new Marca("Jequiti", false)); 
+      marcas.add(new Marca("Victoria's Secret", false));
+      marcas.add(new Marca("Dr. Oetker", false));
+  
+      Scanner searchedValue = new Scanner (System.in);
         System.out.println("Qual o nome da marca?");
+        String marcaPesquisada = searchedValue.nextLine();
+
+boolean marcaEncontrada = false;
+for(Marca x : marcas ){
+  if(x.getNome().equalsIgnoreCase(marcaPesquisada)){
+      marcaEncontrada = true;
+      if(x.fazTestesEmAnimais())
+      {
+        System.out.println("A marca " + x.getNome() + " faz testes em animais.\nLink para mais informacoes: " + x.getLink() ); 
+      }
+      else
+      {
+        System.out.println("A marca " + x.getNome() + " nao faz testes em animais." );  
+      }
+  }
+}
+if(marcaEncontrada == false){
+    System.out.println("Marca não encontrada.");
+}
+
     }
     
     public static void exibeBiblioteca(){
